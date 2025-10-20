@@ -5,4 +5,3 @@
 * Loading and setting up the LEDs associated with the tiles that are
 * stomped on for the game.
 */
-
