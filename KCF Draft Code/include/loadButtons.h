@@ -1,18 +1,18 @@
 /*
-* Header file to load buttons for Keeping Carbon Stored
-* Calico Rose
-* October 20, 2025
-* Loading and setting up the buttons associated with the tiles that are
-* stomped on for the game.
-*/
+ * Header file to load buttons for Keeping Carbon Stored
+ * Calico Rose
+ * October 20, 2025
+ * Loading and setting up the buttons associated with the tiles that are
+ * stomped on for the game.
+ */
 
 #include <Arduino.h>
 #include <Bounce2.h>
 
 // Define pins for the tiles on row A.
-#define A1_PIN 1
+#define A1_PIN 0
 #define A2_PIN 1
-#define A3_PIN 1
+/*#define A3_PIN 1
 #define A4_PIN 1
 #define A5_PIN 1
 
@@ -49,12 +49,12 @@
 #define F2_PIN 1
 #define F3_PIN 1
 #define F4_PIN 1
-#define F5_PIN 1
+#define F5_PIN 1 */
 
 // Create button object for each tile in row A.
 Bounce2::Button A1_Tile = Bounce2::Button();
 Bounce2::Button A2_Tile = Bounce2::Button();
-Bounce2::Button A3_Tile = Bounce2::Button();
+/*Bounce2::Button A3_Tile = Bounce2::Button();
 Bounce2::Button A4_Tile = Bounce2::Button();
 Bounce2::Button A5_Tile = Bounce2::Button();
 
@@ -91,14 +91,15 @@ Bounce2::Button F1_Tile = Bounce2::Button();
 Bounce2::Button F2_Tile = Bounce2::Button();
 Bounce2::Button F3_Tile = Bounce2::Button();
 Bounce2::Button F4_Tile = Bounce2::Button();
-Bounce2::Button F5_Tile = Bounce2::Button();
+Bounce2::Button F5_Tile = Bounce2::Button(); */
 
 // Set up each button (tile) in each row, attach to correct pin, set interval, set state.
-bool setupButtons() {
+bool setupButtons()
+{
     // Attach each tile in row A to the correct pin.
     A1_Tile.attach(A1_PIN, INPUT_PULLUP);
     A2_Tile.attach(A2_PIN, INPUT_PULLUP);
-    A3_Tile.attach(A3_PIN, INPUT_PULLUP);
+    /*A3_Tile.attach(A3_PIN, INPUT_PULLUP);
     A4_Tile.attach(A4_PIN, INPUT_PULLUP);
     A5_Tile.attach(A5_PIN, INPUT_PULLUP);
 
@@ -115,7 +116,7 @@ bool setupButtons() {
     C3_Tile.attach(C3_PIN, INPUT_PULLUP);
     C4_Tile.attach(C4_PIN, INPUT_PULLUP);
     C5_Tile.attach(C5_PIN, INPUT_PULLUP);
-    
+
     // Attach each tile in row D to the correct pin.
     D1_Tile.attach(D1_PIN, INPUT_PULLUP);
     D2_Tile.attach(D2_PIN, INPUT_PULLUP);
@@ -129,18 +130,19 @@ bool setupButtons() {
     E3_Tile.attach(E3_PIN, INPUT_PULLUP);
     E4_Tile.attach(E4_PIN, INPUT_PULLUP);
     E5_Tile.attach(E5_PIN, INPUT_PULLUP);
-    
+
     // Attach each tile in row F (ADA row) to the correct pin.
     F1_Tile.attach(F1_PIN, INPUT_PULLUP);
     F2_Tile.attach(F2_PIN, INPUT_PULLUP);
     F3_Tile.attach(F3_PIN, INPUT_PULLUP);
     F4_Tile.attach(F4_PIN, INPUT_PULLUP);
     F5_Tile.attach(F5_PIN, INPUT_PULLUP);
+    */
 
     // Debounce the button interval in milliseconds.
     A1_Tile.interval(5);
     A2_Tile.interval(5);
-    A3_Tile.interval(5);
+    /*A3_Tile.interval(5);
     A4_Tile.interval(5);
     A5_Tile.interval(5);
     B1_Tile.interval(5);
@@ -167,12 +169,12 @@ bool setupButtons() {
     F2_Tile.interval(5);
     F3_Tile.interval(5);
     F4_Tile.interval(5);
-    F5_Tile.interval(5);
+    F5_Tile.interval(5); */
 
     // Indicate that the low state corresponds when the button is physically pressed.
     A1_Tile.setPressedState(LOW);
     A2_Tile.setPressedState(LOW);
-    A3_Tile.setPressedState(LOW);
+    /*A3_Tile.setPressedState(LOW);
     A4_Tile.setPressedState(LOW);
     A5_Tile.setPressedState(LOW);
     B1_Tile.setPressedState(LOW);
@@ -199,28 +201,29 @@ bool setupButtons() {
     F2_Tile.setPressedState(LOW);
     F3_Tile.setPressedState(LOW);
     F4_Tile.setPressedState(LOW);
-    F5_Tile.setPressedState(LOW);
+    F5_Tile.setPressedState(LOW); */
 
     // Check a few tiles to verify that they were correctly set, return true if correct.
-    if( A1_Tile.getPin() == A1_PIN &&
-        B1_Tile.getPin() == B1_PIN &&
-        C1_Tile.getPin() == C1_PIN &&
-        D1_Tile.getPin() == D1_PIN &&
-        E1_Tile.getPin() == E1_PIN &&
-        F1_Tile.getPin() == F1_PIN )
+    if (A1_Tile.getPin() == A1_PIN)
+    // B1_Tile.getPin() == B1_PIN &&
+    // C1_Tile.getPin() == C1_PIN &&
+    // D1_Tile.getPin() == D1_PIN &&
+    // E1_Tile.getPin() == E1_PIN &&
+    // F1_Tile.getPin() == F1_PIN
     {
         return true;
     }
-    
+
     return false;
 }
 
 // Update the buttons. Should be called at the beginning of the main loop.
-void updateButtons() {
+void updateButtons()
+{
     // Update each button in row A.
     A1_Tile.update();
     A2_Tile.update();
-    A3_Tile.update();
+    /*A3_Tile.update();
     A4_Tile.update();
     A5_Tile.update();
 
@@ -257,5 +260,5 @@ void updateButtons() {
     F2_Tile.update();
     F3_Tile.update();
     F4_Tile.update();
-    F5_Tile.update();
+    F5_Tile.update(); */
 }
