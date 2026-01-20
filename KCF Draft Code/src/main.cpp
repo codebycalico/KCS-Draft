@@ -19,6 +19,9 @@ void setup()
   setupButtons();
   setupLED();
 
+  // replace with cute setup sequence?
+  turnBlack();
+
   Serial.begin(9600);
 }
 
@@ -34,33 +37,45 @@ void loop()
 
   if (gameActive)
   {
+    while (Serial.available() == 0)
+    {
+      // wait if data isn't available yet
+    }
+  }
+
+  /*if (gameActive)
+  {
     recvWithEndMarker();
     showNewData();
-  }
+  } */
 
-  /* if (A1_Tile.pressed())
+  /*
+  if (gameActive)
   {
-    Serial.print("A1:255:0:0");
-    turnRed();
-    timeOut = (long)millis();
-    timeUp = false;
-  }
-
-  if (A2_Tile.pressed())
-  {
-    Serial.print("A1:0:255:0");
-    turnGreen();
-    timeOut = (long)millis();
-    timeUp = false;
-  }
-
-  if (timeUp == false)
-  {
-    if ((long)millis() - timeOut > 3000)
+    if (A1_Tile.pressed())
     {
-      Serial.print("A1:timeout");
-      turnBlack();
-      timeUp = true;
+      Serial.print("A1:255:0:0");
+      turnRed();
+      timeOut = (long)millis();
+      timeUp = false;
+    }
+
+    if (A2_Tile.pressed())
+    {
+      Serial.print("A1:0:255:0");
+      turnGreen();
+      timeOut = (long)millis();
+      timeUp = false;
+    }
+
+    if (timeUp == false)
+    {
+      if ((long)millis() - timeOut > 3000)
+      {
+        Serial.print("A1:timeout");
+        turnBlack();
+        timeUp = true;
+      }
     }
   } */
 }
