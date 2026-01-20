@@ -10,8 +10,8 @@
 #include <Bounce2.h>
 
 // Define pins for the tiles on row A.
-#define A1_PIN 0
-#define A2_PIN 1
+#define A1_PIN 2
+#define A2_PIN 4
 /*#define A3_PIN 1
 #define A4_PIN 1
 #define A5_PIN 1

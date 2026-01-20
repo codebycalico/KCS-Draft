@@ -9,7 +9,7 @@
 #include <Arduino.h>
 #include <FastLED.h>
 
-#define LED_PIN 15
+#define LED_PIN 6
 #define TOTAL_LEDS 14
 
 CRGBArray<TOTAL_LEDS> ledStrip;
